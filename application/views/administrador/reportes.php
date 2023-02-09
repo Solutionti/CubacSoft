@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Administracion / Reportes</title>
+      <title>Administracion / Postulados</title>
       <?php require_once("componentes/head.php"); ?>
    </head>
    <body class="g-sidenav-show bg-gray-100">
@@ -15,10 +15,10 @@
             <div class="container-fluid py-1 px-3">
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">administración</a></li>
-                     <li class="breadcrumb-item text-sm text-white active" aria-current="page">Reportes</li>
+                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Administración</a></li>
+                     <li class="breadcrumb-item text-sm text-white active" aria-current="page">Escrutinio</li>
                   </ol>
-                  <h6 class="font-weight-bolder text-white mb-0">Reportes</h6>
+                  <h6 class="font-weight-bolder text-white mb-0">Escrutinio</h6>
                </nav>
                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                   <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -61,7 +61,7 @@
                                        <h6 class="text-sm font-weight-normal mb-1">
                                           <span class="font-weight-bold">New message</span> from Laur
                                        </h6>
-                                       <p class="text-xs text-secondary mb-0">
+                                       <p class="text-xs text-dark mb-0">
                                           <i class="fa fa-clock me-1"></i>
                                           13 minutes ago
                                        </p>
@@ -79,7 +79,7 @@
                                        <h6 class="text-sm font-weight-normal mb-1">
                                           <span class="font-weight-bold">New album</span> by Travis Scott
                                        </h6>
-                                       <p class="text-xs text-secondary mb-0">
+                                       <p class="text-xs text-dark mb-0">
                                           <i class="fa fa-clock me-1"></i>
                                           1 day
                                        </p>
@@ -109,7 +109,7 @@
                                        <h6 class="text-sm font-weight-normal mb-1">
                                           Payment successfully completed
                                        </h6>
-                                       <p class="text-xs text-secondary mb-0">
+                                       <p class="text-xs text-dark mb-0">
                                           <i class="fa fa-clock me-1"></i>
                                           2 days
                                        </p>
@@ -125,135 +125,236 @@
          </nav>
          <!-- End Navbar -->
          <div class="container-fluid py-5">
-            <div class="row ">
-               <div class="card">
-                  <div class="row mt-4">
-                     <div class="col-md-12">
-                        <h5>Reportes</h5>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-7">
-                        <div class="card">
-                           <div class="card-body">
-                              <h6 class="card-title">Reporte de Atenciones Doctores</h6>
-                              <form target="blank" action="<?php echo base_url(); ?>administracion/reportediario" method="POST">
-                                 <div class="row">
-                                    <div class="col-md-5" style="margin-bottom:10px">
-                                       <select name="doctor" class="form-control">
-                                          <option value="">Seleccione una opcion</option>
-                                          <?php foreach($doctor->result() as $doctores){ ?>
-                                          <option value="<?php echo $doctores->codigo_doctor; ?>"><?php echo $doctores->nombre; ?></option>
-                                          <?php } ?>
-                                          <option value="all">Reporte Ingresos y Gastos</option>
-                                       </select>
-                                    </div>
-                                    <div class="col-md-5">
-                                       <input type="date" class="form-control" name="fecha" value="<?php echo date("Y-m-d"); ?>">
-                                    </div>
-                                    <div class="col-md-2">
-                                       <button type="submit" class="btn btn-primary btn-block"  title="Descargar PDF"> <i class="fa fa-download"></i> </button>
-                                    </div>
-                                 </div>
-                              </form>
-                              <hr>
-                              <h6 class="card-title">Reporte de gastos</h6>
-                              <form target="blank" action="<?php echo base_url(); ?>administracion/reportegastos" method="POST">
-                                 <div class="row">
-                                    <div class="col-md-5">
-                                       <div class="form-group">
-                                          <label for="">Desde</label>
-                                          <input type="date" name="fecha1" class="form-control" value="<?php echo date("Y-m-d"); ?>">
-                                       </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                       <div class="form-group">
-                                          <label for="">Hasta</label>
-                                          <input type="date" name="fecha2" class="form-control" value="<?php echo date("Y-m-d"); ?>">
-                                       </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                       <label for=""><br></label>
-                                       <button type="submit" class="btn btn-primary btn-block"  title="Descargar PDF"> <i class="fa fa-download"></i> </button>
-                                    </div>
-                                 </div>
-                              </form>
-                              <hr>
-                              <h5 class="card-title">Reporte Cierre de CAJA <span style="font-size:16px">(Ingresos-Gastos)</span></h5>
-                              <form id="reporteglobal" >
-                                 <div class="row">
-                                    <div class="col-md-4">
-                                       <div class="form-group">
-                                          <label for="">Desde</label>
-                                          <input type="date" name="fecha_global_1" value="<?php echo date("Y-m-d"); ?>" class="form-control">
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                       <div class="form-group">
-                                          <label for="">Hasta</label>
-                                          <input type="date" name="fecha_global_2" value="<?php echo date("Y-m-d"); ?>" class="form-control">
-                                       </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                       <label for=""> </label>
-                                       <button type="submit" class="btn btn-primary btn-block"  title="Descargar PDF"> <i class="fa fa-download"></i> </button>
-                                    </div>
-                                    
-                                    
-                                 </div>
-                              </form>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-5">
-                        <div class="card">
-                           <form target="blank" action="<?php echo base_url(); ?>administracion/reportelaboratorio" method="POST">
-                              <div class="card-body">
-                                 <h5 class="card-title">Reporte de laboratorio</h5>
-                                 <div class="row">
-                                    <div class="col-md-7"  style="margin-bottom:10px">
-                                       <input type="text" class="form-control" name="usuario" value="<?php echo $this->session->userdata("nombre"); ?>" readonly>
-                                    </div>
-                                    <div class="col-md-5">
-                                       <input type="date" name="fecha" value="<?php echo date("Y-m-d"); ?>" class="form-control"> 
-                                    </div>
-                                    <div class="col-md-6" >
-                                       <button type="submit" style="width: 100%;" class="btn btn-primary btn-block"> Generar <i class="fa fa-download"></i> </button>
-                                    </div>
-
-                                 </div>
-                                 <br>
-                              </div>
-                           </form>
-                           
-                           <div class="card-body">
-                              <h5 class="card-title">Reporte de citas listado dia a dia</h5>
-                              <label for="">Seleccione un doctor o ver todos para ver el reporte</label>
-                              <select name="" id="" class="form-control">
-                                 <option value="">SELECCIONE UNA OPCIÓN</option>
-                                 <option value="">VER TODOS</option>
-                                 <?php foreach($doctor->result() as $doctores){ ?>
-                                 <option value="<?php echo $doctores->codigo_doctor; ?>"><?php echo $doctores->nombre; ?></option>
-                                 <?php } ?>
-                              </select>
-                              <br>
-                              
-                              <div class="col-md-6" >
-                                 <button type="submit" style="width: 100%;" class="btn btn-primary btn-block"> Generar <i class="fa fa-download"></i> </button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+         <div class="row ">
+            <div class="card">
+               <div class="row mt-4">
+                  <div class="col-md-12">
                   </div>
                </div>
+               <div class="table-responsive" >
+                  <table class="table align-items-center table-borderless mb-0 text-uppercase" >
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" ></th>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Nombre</th>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Foto</th>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Cantidad votos</th>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Numero de tarjeton</th>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Color</th>
+                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Estadisticas</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        
+                     </tbody>
+                  </table>
+                  <br>
+               </div>
             </div>
+            <?php require_once("componentes/footer.php"); ?>
          </div>
-         </div>
-         <?php require_once("componentes/footer.php"); ?>
+         <div class="modal fade" id="AgregarCPE" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-xl" role="document">
+               <form class="modal-content" id="AddGasto">
+                  <div class="modal-header bg-default">
+                     <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Registrar Postulado</h5>
+                     <button type="button" class=" close" data-bs-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <h6>
+                                       <strong>Información del Comprobante</strong>
+                                    </h6>
+                                    <div class="dropdown-divider"></div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Tipo Comprobante
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <select name="cpe_tipo" id="cpe_tipo" class="form-control" required>
+                                          <option value="">Seleccionar</option>
+                                          <option value="3">Boleta</option>
+                                          <option value="1">Factura</option>
+                                          <option value="2">RHE</option>
+                                          <!--option value="7">Nota de Credito</option-->
+                                          <!--option value="8">Nota de Debito</option-->
+                                          <option value="12">Maq.Ticketera</option>
+                                          <option value="13">Doc.Ins.Financieras</option>
+                                          <option value="14">Recibos Servicios Publicos</option>
+                                          <option value="9001">Otras Facturas</option>
+                                          <option value="123">Gastos VARIOS</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Nro. Serie
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input type="text" name="statee" id="statee" style="display: none;" >
+                                       <input type="text" name="idgastos" id="idgastos" style="display: none;" >
+                                       <input type="text" name="cpe_serie" id="cpe_serie" maxlength="4" minlength="4" class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Nro. Correlativo
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input type="text" name="cpe_numero" id="cpe_numero" minlength="1" maxlength="8" class="s_n form-control" required data-validation-required-message="Complete el Numero">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Op. Gravada
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input type="number" require step="0.01" name="cpe_gravada" id="cpe_gravada" maxlength="8" minlength="1" class="form-control" required data-validation-required-message="Complete el Numero">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>IGV
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input type="number" require step="0.01" name="cpe_igv" id="cpe_igv" maxlength="8" minlength="1" class="form-control" required data-validation-required-message="Complete el Numero">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Total *
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input type="number" step="0.01" name="cpe_total" id="cpe_total" maxlength="8" minlength="1" class="form-control" required data-validation-required-message="Complete el Numero">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                              </div>
+
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Fe.Emisión
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input name="f_emision" id="f_emision" type="date" class="form-control _date" required>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Fe.Recepción
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input name="f_recepcion" id="f_recepcion" type="date" class="form-control _date" required>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Detalle / Descripción<span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <textarea name="descripcion" id="descripcion" cols="5" rows="5" class="form-control" style="resize: none;"  maxlength="100"></textarea>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>
+                                       <strong>Información del Proveedor</strong>
+                                    </label>
+                                    <div class="dropdown-divider"></div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Tipo</label>
+                                    <div class="controls" class="for">
+                                       <select name="prov_tipo_doc" id="prov_tipo_doc" required class="form-control manual">
+                                          <option value="6" selected>RUC</option>
+                                          <!--option value="1">DNI / Lib.Elect.</option-->
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group input-group-sm">
+                                    <label>N° Documento</label>
+                                    <div class="input-group">
+                                       <input type="text" name="prov_nro_doc" id="prov_nro_doc" class="form-control" required data-validation-required-message="Complete el Numero" length="11" min="10000000001">
+                                       <div class="input-group-append">
+                                          <button type="button" style="padding: 5px;" class="btn btn-primary" id="prov_btn_buscar"><i class="fa fa-search"></i></button>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Razón Social
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input type="text" name="prov_razon_social" id="prov_razon_social" maxlength="100" class="form-control" required data-validation-required-message="Complete el Numero" >
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>
+                                       <strong>Información del Colaborador Responsable</strong>
+                                    </label>
+                                    <hr>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Responsable<span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+               </form>
+            </div>
          </div>
       </main>
       <?php require_once("componentes/personalizar.php"); ?>
+      <!-- LARGE MODAL -->
       <?php require_once("componentes/scripts.php"); ?>
-      <script src="<?php echo base_url(); ?>public/js/scripts/reportes.js"></script>
+      <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js"></script>
    </body>
 </html>

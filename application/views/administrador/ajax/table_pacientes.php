@@ -28,7 +28,6 @@
 
 			$btns1 = '<div class="row">'.$eliminar.'</div>';
 			$btns2 = '<div class="row">'.$editar.'</div>';
-			$btns3 = '<div class="row">'.$historias.'</div>';
 		}
 		else if( $this->session->userdata("rol") == "Laboratorista" || $this->session->userdata("rol") == "Patologo"){
 			$eliminar = '';
@@ -36,14 +35,13 @@
 
 			$btns1 = '<div class="row">'.$eliminar.'</div>';
 			$btns2 = '<div class="row">'.$editar.'</div>';
-			$btns3 = '<div class="row">'.$historias.'</div>';
 		}
 		else {
 			$btns = "<div style='display:block;width:100%;' class='text-center'>".$historias."</div>";	
 		}
 
 		
-		$data[] = [$btns1, $btns2, $btns3, $documento2, $hc, $apellido, $nombre, $direccion, $telefono, $fecha_nacimiento,$sexo,$estado_civil ];
+		$data[] = [$btns1, $btns2, $documento2, $hc, $apellido, $nombre, $direccion, $telefono, $fecha_nacimiento,$sexo,$estado_civil ];
  	}
 
 	$json_data = array(

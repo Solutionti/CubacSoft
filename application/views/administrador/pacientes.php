@@ -17,9 +17,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Administración</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Pacientes</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Personas</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Pacientes</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Personas</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -130,21 +130,16 @@
       <div class="card">
      <div class="row mt-4">
        <div class="col-md-12">
-         <?php if($this->session->userdata("rol") == "Patologo" || $this->session->userdata("rol") == "Laboratorista"){ ?>
-       <?php } else { ?>
        <a class="btn bg-gradient-danger btn-xs" data-bs-toggle="modal" href="#AgregarPaciente" role="button">Agregar <i class="fas fa-plus"></i> </a>
-        <?php } ?>
        </div>
      </div>
-        <br>  
   <div class="table-responsive" >
     <table class="table align-items-center mb-0 table-borderless text-uppercase" id="table-pacientes">
       <thead>
         <tr>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12"></th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12"></th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12"></th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >DNI</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Documento</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >No HC</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Apellidos</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Nombres</th>
@@ -170,10 +165,10 @@
 
  <!-- VENTANAS MODALES -->
 <div class="modal fade" id="AgregarPaciente" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-xl" role="document">
+  <div class="modal-dialog  modal-fullscreen" role="document">
     <div class="modal-content">
       <div class="modal-header bg-default">
-        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Crear paciente</h5>
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Crear Persona</h5>
         <button type="button" class=" close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

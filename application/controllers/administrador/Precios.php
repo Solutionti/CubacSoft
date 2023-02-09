@@ -13,7 +13,7 @@ class Precios extends Admin_Controller {
 	{
 		$precios = $this->Precios_model->getPrecios();
 		$data = ["precio" => $precios];
-		$this->load->view('administrador/precios', $data);
+		$this->load->view('administrador/ganadores', $data);
 	}
 
 	public function crearPrecioServicio() {

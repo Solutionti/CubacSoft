@@ -16,9 +16,9 @@
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                      <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Administración</a></li>
-                     <li class="breadcrumb-item text-sm text-white active" aria-current="page">Postulados</li>
+                     <li class="breadcrumb-item text-sm text-white active" aria-current="page">Ganadores</li>
                   </ol>
-                  <h6 class="font-weight-bolder text-white mb-0">Postulados</h6>
+                  <h6 class="font-weight-bolder text-white mb-0">Ganadores</h6>
                </nav>
                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                   <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -129,68 +129,49 @@
             <div class="card">
                <div class="row mt-4">
                   <div class="col-md-12">
-                     <a class="btn bg-gradient-danger btn-xs" data-bs-toggle="modal" href="#AgregarCPE" id="btn_AddGasto" role="button">Agregar <i class="fas fa-plus"></i> </a>
                   </div>
                </div>
-               <br>  
-               <div class="table-responsive" >
-                  <table class="table align-items-center table-borderless mb-0 text-uppercase" id="table-gastos">
-                     <thead>
-                        <tr>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" ></th>
-                           <!--th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Estado CPE</th-->
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Nombre</th>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Color</th>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" ># Targeron</th>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Fecha postulaciòn</th>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Cargo</th>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Postulacion</th>
-                           <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Foto</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <?php foreach($gastos->result() as $gastoss){ ?>
-                        <tr>
-                           <td>
-                              <div class="row" style="padding-right:10px;">
-                                 <a  
-                                    class="icon icon-shape icon-sm me-1 bg-gradient-info shadow mx-3"
-                                    onclick="editarCPE(<?php echo $gastoss->iddoc_cpe; ?>);"
-                                    >
-                                 <i class="fas fa-pencil-alt text-white opacity-10"></i>
-                                 </a>
-                              </div>
-                           </td>
-                           <!--td>
-                              <div class="row">
-                                 <a 
-                                    style="cursor: pointer;" class="icon icon-shape icon-sm  <?php if($gastoss->estado==0){ echo " bg-gradient-success ";}else{ echo " bg-gradient-secondary ";} ?> shadow" title="Recepcionado"
-                                    >
-                                 <i class="fas <?php if($gastoss->estado==0){ echo " fa-check ";}else if($gastoss->estado>=0){ echo " fa-check-square ";}else{ echo " fa-square ";} ?> text-white opacity-10"></i>
-                                 </a>
-                                 <a 
-                                    style="cursor: pointer;" class="icon icon-shape icon-sm  <?php if($gastoss->estado==1){ echo " bg-gradient-warning ";}else{ echo " bg-gradient-secondary ";} ?> shadow" title="Reportado"
-                                    >
-                                    <i class="fas <?php if($gastoss->estado==1){ echo " fa-check ";}else if($gastoss->estado>=1){ echo " fa-check-square ";}else{ echo " fa-square ";} ?> text-white opacity-10"></i>
-                                 </a>
-                                 <a 
-                                    style="cursor: pointer;" class="icon icon-shape icon-sm  <?php if($gastoss->estado==2){ echo " bg-gradient-success ";}else{ echo " bg-gradient-secondary ";} ?> shadow" title="Tributado"
-                                    >
-                                 <i class="fas <?php if($gastoss->estado==2){ echo " fa-check ";}else if($gastoss->estado>=2){ echo " fa-check-square ";}else{ echo " fa-square ";} ?> text-white opacity-10"></i>
-                                 </a>
-                              </div>
-                           </td-->
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->comprobante." ".$gastoss->monto_v2; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->razon_social; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->descripcion; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->f_recepcion; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->nombre." ".$gastoss->apellido; ?></td>
-                           <!--td class="text-xs text-dark mb-0"><?php echo $gastoss->estado; ?></td-->
-                        </tr>
-                        <?php } ?>
-                     </tbody>
-                  </table>
-                  <br>
+               <div class="row">
+                 <div class="col-md-4 mt-4 offset-md-2">
+                    <div class="card card-profile mt-md-0 mt-5">
+                      <a href="javascript:;">
+                        <div class="p-3">
+                         <img class="w-100 border-radius-md" src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/jordan.jpg" height="350px;">
+                        </div>
+                      </a>
+                    <div class="card-body blur justify-content-center text-center mx-4 mb-4 border-radius-md">
+                      <h4 class="mb-0">Bruce Mars</h4>
+                      <p>Elecciones</p>
+                    <div class="row justify-content-center text-center">
+                      <div class="col-12 mx-auto">
+                        <h5 class="text-info mb-0">750</h5>
+                        <small>Cantidad</small>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+                <!--  -->
+                <div class="col-md-4 mt-4 offset-md-1">
+                    <div class="card card-profile mt-md-0 mt-5">
+                      <a href="javascript:;">
+                        <div class="p-3">
+                         <img class="w-100 border-radius-md" src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/brooke.jpg" height="350px;">
+                        </div>
+                      </a>
+                    <div class="card-body blur justify-content-center text-center mx-4 mb-4 border-radius-md">
+                      <h4 class="mb-0">Votos en blanco</h4>
+                      <p>Elecciones</p>
+                    <div class="row justify-content-center text-center">
+                      <div class="col-12 mx-auto">
+                        <h5 class="text-info mb-0">750</h5>
+                        <small>Cantidad</small>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <br>
+            </div>
                </div>
             </div>
             <?php require_once("componentes/footer.php"); ?>
@@ -216,44 +197,53 @@
                                     <div class="dropdown-divider"></div>
                                  </div>
                               </div>
-                              <div class="row">
                               <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Tipo postulaciòn
+                                    <label>Tipo Comprobante
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
                                        <select name="cpe_tipo" id="cpe_tipo" class="form-control" required>
                                           <option value="">Seleccionar</option>
-                                          <option value="3">Alcaldia</option>
+                                          <option value="3">Boleta</option>
+                                          <option value="1">Factura</option>
+                                          <option value="2">RHE</option>
+                                          <!--option value="7">Nota de Credito</option-->
+                                          <!--option value="8">Nota de Debito</option-->
+                                          <option value="12">Maq.Ticketera</option>
+                                          <option value="13">Doc.Ins.Financieras</option>
+                                          <option value="14">Recibos Servicios Publicos</option>
+                                          <option value="9001">Otras Facturas</option>
+                                          <option value="123">Gastos VARIOS</option>
                                        </select>
                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Nombre
+                                    <label>Nro. Serie
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="text" name="cpe_serie" id="cpe_serie"  class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
+                                       <input type="text" name="statee" id="statee" style="display: none;" >
+                                       <input type="text" name="idgastos" id="idgastos" style="display: none;" >
+                                       <input type="text" name="cpe_serie" id="cpe_serie" maxlength="4" minlength="4" class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Apellido
+                                    <label>Nro. Correlativo
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="text" name="cpe_serie" id="cpe_serie"  class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
+                                       <input type="text" name="cpe_numero" id="cpe_numero" minlength="1" maxlength="8" class="s_n form-control" required data-validation-required-message="Complete el Numero">
                                     </div>
                                  </div>
                               </div>
-                              </div>
-                              <div class="col-md-3">
+                              <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Numero tarjeton
+                                    <label>Op. Gravada
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
@@ -261,9 +251,9 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="col-md-9">
+                              <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Cargo
+                                    <label>IGV
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
@@ -271,14 +261,45 @@
                                     </div>
                                  </div>
                               </div>
-                              
-                              <div class="col-md-12">
+                              <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Color del tarjeton
+                                    <label>Total *
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input name="f_emision" id="f_emision" type="color" class="form-control _date" required>
+                                       <input type="number" step="0.01" name="cpe_total" id="cpe_total" maxlength="8" minlength="1" class="form-control" required data-validation-required-message="Complete el Numero">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                              </div>
+
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Fe.Emisión
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input name="f_emision" id="f_emision" type="date" class="form-control _date" required>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Fe.Recepción
+                                       <span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <input name="f_recepcion" id="f_recepcion" type="date" class="form-control _date" required>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Detalle / Descripción<span class="required">*</span>
+                                    </label>
+                                    <div class="controls">
+                                       <textarea name="descripcion" id="descripcion" cols="5" rows="5" class="form-control" style="resize: none;"  maxlength="100"></textarea>
                                     </div>
                                  </div>
                               </div>
@@ -291,34 +312,38 @@
                                     <label>
                                        <strong>Información del Proveedor</strong>
                                     </label>
+                                    <div class="dropdown-divider"></div>
                                  </div>
                               </div>
-                              <div class="col-md-5">
+                              <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Tipo documento</label>
+                                    <label>Tipo</label>
                                     <div class="controls" class="for">
                                        <select name="prov_tipo_doc" id="prov_tipo_doc" required class="form-control manual">
-                                          <option value="6" selected>Cedula de ciudadania</option>
+                                          <option value="6" selected>RUC</option>
+                                          <!--option value="1">DNI / Lib.Elect.</option-->
                                        </select>
                                     </div>
                                  </div>
                               </div>
-                              <div class="col-md-7">
+                              <div class="col-md-6">
                                  <div class="form-group input-group-sm">
                                     <label>N° Documento</label>
                                     <div class="input-group">
-                                       <input type="text" name="prov_nro_doc" id="prov_nro_doc" class="form-control" required data-validation-required-message="Complete el Numero" length="11" min="11">
+                                       <input type="text" name="prov_nro_doc" id="prov_nro_doc" class="form-control" required data-validation-required-message="Complete el Numero" length="11" min="10000000001">
+                                       <div class="input-group-append">
+                                          <button type="button" style="padding: 5px;" class="btn btn-primary" id="prov_btn_buscar"><i class="fa fa-search"></i></button>
+                                       </div>
                                     </div>
-                                    
                                  </div>
                               </div>
                               <div class="col-md-12">
                                  <div class="form-group">
-                                    <label>Foto
+                                    <label>Razón Social
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="file" name="prov_razon_social" id="prov_razon_social" maxlength="100" class="form-control" required data-validation-required-message="Complete el Numero" >
+                                       <input type="text" name="prov_razon_social" id="prov_razon_social" maxlength="100" class="form-control" required data-validation-required-message="Complete el Numero" >
                                     </div>
                                  </div>
                               </div>
@@ -335,12 +360,7 @@
                                     <label>Responsable<span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <select required name="codigo_usuario" id="codigo_usuario" class="form-control" >
-                                          <option value="">Seleccionar Colaborador</option>
-                                             <?php foreach($users->result() as $users){ ?>
-                                                <option value="<?php echo $users->codigo_usuario; ?>"><?php echo $users->nombre.' '.$users->apellido; ?></td>
-                                             <?php } ?>
-                                       </select>
+                                       
                                     </div>
                                  </div>
                               </div>

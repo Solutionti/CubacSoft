@@ -138,10 +138,21 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Administrador</button>
   </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Enfermera</button>
-  </li>
-  <li class="nav-item" role="presentation">
+  <!-- <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      id="profile-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#profile"
+      type="button"
+      role="tab"
+      aria-controls="profile"
+      aria-selected="false"
+    >
+      Sucesor
+    </button>
+  </li> -->
+  <!-- <li class="nav-item" role="presentation">
     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Doctor</button>
   </li>
   <li class="nav-item" role="presentation">
@@ -149,7 +160,7 @@
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="contact-tab2" data-bs-toggle="tab" data-bs-target="#contact2" type="button" role="tab" aria-controls="contact2" aria-selected="false">Patologia</button>
-  </li>
+  </li> -->
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -428,11 +439,7 @@
               <select class="form-control" id="tp_usuario">
                 <option value="">Seleccione el tipo de usuario</option>
                 <option value="Administrador">Administrador</option>
-                <!-- <option value="Atencion">Atencion</option> -->
-                <option value="Enfermera">Enfermera</option>
-                <option value="Doctor">Doctor</option>
-                <option value="Laboratorista">Laboratorista</option>
-                <option value="Patologo">Patologo</option>
+                
               </select>
         </div>
         <div class="form-group input-group-sm">
@@ -488,10 +495,6 @@
               <select class="form-control" id="tp_usuario2">
                 <option value="">Seleccione el tipo de usuario</option>
                 <option value="Administrador">Administrador</option>
-                <option value="Doctor">Doctor</option>
-                <option value="Enfermera">Enfermera</option>
-                <option value="Laboratorista">Laboratorista</option>
-                <option value="Patologo">Patologo</option>
               </select>
         </div>
         <div class="form-group input-group-sm">

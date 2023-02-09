@@ -17,9 +17,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">administración</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Triaje</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Evento</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Triaje</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Evento</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -132,17 +132,17 @@
        <div class="col-md-12">
        </div>
      </div>
-        <br>  
-  <div class="table-responsive" >
+        <div class="table-responsive" >
+    <a class="btn bg-gradient-danger btn-xs" data-bs-toggle="modal" href="#AgregarPaciente" role="button">Agregar <i class="fas fa-plus"></i> </a> 
     <table class="table align-items-center table-borderless mb-0 text-uppercase" id="table-triaje">
       <thead>
         <tr>
         <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
                     <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="status">Estado</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">DNI</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Paciente</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Doctor</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Especialidad</th>
+                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Nombre evento</th>
+                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Fecha inicio</th>
+                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora inicial</th>
+                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora final</th>
                     <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Costo</th>
           
         </tr>

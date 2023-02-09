@@ -91,7 +91,7 @@
       <div class="row">
       <div class="col-md-4">
           <div class="card card-profile">
-            <img src="<?php echo base_url(); ?>public/img/theme/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+            <img src="https://www.solucionativa.cl/wp-content/uploads/2021/08/BannerVotacionesOnline.jpg" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
@@ -127,10 +127,10 @@
                 </div>
               <div class="text-center mt-4">
                 <h5>
-                  <?php echo $informaciones->nombre; ?><span class="font-weight-light"> <?php echo $informaciones->apellido; ?></span>
+                  <?php echo $informaciones->nombre; ?><span > <?php echo $informaciones->apellido; ?></span>
                 </h5>
                 <div class="h6 font-weight-300">
-                  <i class="ni location_pin mr-2"></i><?php echo $informaciones->rol_usuario; ?>
+                  <i class="ni location_pin mr-2 text-uppercase"></i><?php echo $informaciones->rol_usuario; ?>
                 </div>
                 <div class="h6 mt-4">
                   <i class="ni business_briefcase-24 mr-2"></i><?php echo $informaciones->email; ?>

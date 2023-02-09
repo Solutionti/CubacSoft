@@ -1,8 +1,8 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
    <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="<?php echo base_url(); ?>administracion/perfil">
-      <img src="<?php echo base_url();?>public/img/theme/logo.png" class="navbar-brand-img h-100" alt="main_logo">
+      <a class="navbar-brand m-0" href="<?php echo base_url(); ?>administracion/inicio">
+      <!-- <img src="<?php echo base_url();?>public/img/theme/logo.png" class="navbar-brand-img h-100" alt="main_logo"> -->
       <span class="ms-1 font-weight-bold">CubacSoft</span>
       </a>
    </div>
@@ -12,18 +12,37 @@
          <!-- ROL ADMINISTRADOR TIENE TODOS LOS PRIVILEGIOS --> 
          <?php if($this->session->userdata("rol") == "Administrador"){ ?>
          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>administracion/inicio">
+            <a class="nav-link" href="<?php echo base_url(); ?>administracion/perfil">
             <i class="fas fa-home"></i>
-            <span class=" "> Inicio</span>
+            <span class=" "> Perfil</span>
             </a>
          </li>
          
           <li class="nav-item">
-            <a class="nav-link " href="<?php echo base_url(); ?>administracion/citas">
+            <a class="nav-link " href="<?php echo base_url(); ?>administracion/recursoshumanos">
               <i class="fa fa-users"></i>
               <span class="sidenav-normal">Usuarios</span>
             </a>
           </li>
+         
+         <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>administracion/gastos">
+            <i class="fas fa-address-card"></i>
+            <span class=" "> Postulados</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>administracion/reportes">
+            <i class="fas fa-chart-pie"></i>
+            <span> Escrutinio</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>administracion/precios">
+            <i class="fas  fa-thumbs-up"></i>
+            <span> Ganadores</span>
+            </a>
+         </li>
          <li class="nav-item ">
             <a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#atencion">
             <i class="fas fa-cogs"></i>
@@ -36,11 +55,11 @@
                      <span class="sidenav-normal">Datos Personas</span>
                      </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a class="nav-link" href="<?php echo base_url(); ?>administracion/atencion">
                      <span class="sidenav-normal">Carga de votantes</span>
                      </a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                      <a class="nav-link " href="<?php echo base_url(); ?>administracion/laboratorio">
                      <span class="sidenav-normal">Tablero de resultados</span>
@@ -54,27 +73,6 @@
                </ul>
             </div>
          </li>
-         <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>administracion/inicio">
-            <i class="fas fa-address-card"></i>
-            <span class=" "> Postulados</span>
-            </a>
-         </li>
-         
-         
-         <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>administracion/reportes">
-            <i class="fas fa-chart-pie"></i>
-            <span> Escrutinio</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>administracion/reportes">
-            <i class="fas  fa-thumbs-up"></i>
-            <span> Ganadores</span>
-            </a>
-         </li>
-         
          
          <li class="nav-item">
             <a class="nav-link" href="#">

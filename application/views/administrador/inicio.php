@@ -135,7 +135,7 @@
                 <div class="col-8">
                   <div class="numbers">
                   <?php $pacientes = $paciente->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Pacientes</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Votantes</p>
                     <h5 class="font-weight-bolder">
                       <?php echo $pacientes->pacientes; ?>
                     </h5>
@@ -161,7 +161,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <?php $historias = $historia->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Historias</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sufragados</p>
                     <h5 class="font-weight-bolder">
                       <?php echo $historias->historias; ?>
                     </h5>
@@ -187,7 +187,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <?php $pagos = $pago->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Contabilidad</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Ganador</p>
                     <h5 class="font-weight-bolder">
                       <?php echo $pagos->pagos; ?>
                     </h5>
@@ -213,7 +213,7 @@
                 <div class="col-8">
                   <div class="numbers">
                   <?php $medicos = $medico->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Doctores</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Votos blanco</p>
                     <h5 class="font-weight-bolder">
                       <?php echo $medicos->medicos; ?>
                     </h5>
