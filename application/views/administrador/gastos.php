@@ -148,47 +148,7 @@
                            <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" >Foto</th>
                         </tr>
                      </thead>
-                     <tbody>
-                        <?php foreach($gastos->result() as $gastoss){ ?>
-                        <tr>
-                           <td>
-                              <div class="row" style="padding-right:10px;">
-                                 <a  
-                                    class="icon icon-shape icon-sm me-1 bg-gradient-info shadow mx-3"
-                                    onclick="editarCPE(<?php echo $gastoss->iddoc_cpe; ?>);"
-                                    >
-                                 <i class="fas fa-pencil-alt text-white opacity-10"></i>
-                                 </a>
-                              </div>
-                           </td>
-                           <!--td>
-                              <div class="row">
-                                 <a 
-                                    style="cursor: pointer;" class="icon icon-shape icon-sm  <?php if($gastoss->estado==0){ echo " bg-gradient-success ";}else{ echo " bg-gradient-secondary ";} ?> shadow" title="Recepcionado"
-                                    >
-                                 <i class="fas <?php if($gastoss->estado==0){ echo " fa-check ";}else if($gastoss->estado>=0){ echo " fa-check-square ";}else{ echo " fa-square ";} ?> text-white opacity-10"></i>
-                                 </a>
-                                 <a 
-                                    style="cursor: pointer;" class="icon icon-shape icon-sm  <?php if($gastoss->estado==1){ echo " bg-gradient-warning ";}else{ echo " bg-gradient-secondary ";} ?> shadow" title="Reportado"
-                                    >
-                                    <i class="fas <?php if($gastoss->estado==1){ echo " fa-check ";}else if($gastoss->estado>=1){ echo " fa-check-square ";}else{ echo " fa-square ";} ?> text-white opacity-10"></i>
-                                 </a>
-                                 <a 
-                                    style="cursor: pointer;" class="icon icon-shape icon-sm  <?php if($gastoss->estado==2){ echo " bg-gradient-success ";}else{ echo " bg-gradient-secondary ";} ?> shadow" title="Tributado"
-                                    >
-                                 <i class="fas <?php if($gastoss->estado==2){ echo " fa-check ";}else if($gastoss->estado>=2){ echo " fa-check-square ";}else{ echo " fa-square ";} ?> text-white opacity-10"></i>
-                                 </a>
-                              </div>
-                           </td-->
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->comprobante." ".$gastoss->monto_v2; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->razon_social; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->descripcion; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->f_recepcion; ?></td>
-                           <td class="text-xs text-dark mb-0"><?php echo $gastoss->nombre." ".$gastoss->apellido; ?></td>
-                           <!--td class="text-xs text-dark mb-0"><?php echo $gastoss->estado; ?></td-->
-                        </tr>
-                        <?php } ?>
-                     </tbody>
+                     
                   </table>
                   <br>
                </div>
@@ -211,7 +171,7 @@
                               <div class="col-md-12">
                                  <div class="form-group">
                                     <h6>
-                                       <strong>Información del Comprobante</strong>
+                                       <strong>Datos basicos del  postulado</strong>
                                     </h6>
                                     <div class="dropdown-divider"></div>
                                  </div>
@@ -289,7 +249,7 @@
                               <div class="col-md-12">
                                  <div class="form-group">
                                     <label>
-                                       <strong>Información del Proveedor</strong>
+                                       <strong>.</strong>
                                     </label>
                                  </div>
                               </div>

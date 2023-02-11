@@ -11,9 +11,8 @@ class Reportes extends Admin_Controller {
 	
 	public function index()
 	{
-		$doctores = $this->Doctores_model->getDoctores();
-		$data = ["doctor" => $doctores];	
-		$this->load->view('administrador/reportes', $data);
+			
+		$this->load->view('administrador/reportes');
 	}
 
 	public function reporteComisionDiario() {

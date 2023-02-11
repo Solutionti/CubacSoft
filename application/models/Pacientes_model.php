@@ -21,44 +21,36 @@ class Pacientes_model extends CI_model {
     }
 
     public function CrearPaciente($data) {
-        /****VALIDANDO NRO DOC** */
-        /****VALIDANDO NRO DOC** */
+       
         $this->db->select("codigo_paciente");
         $this->db->from("pacientes");
         $this->db->where("documento = '".$data["dni"]."'");
         $result = $this->db->get();
         $result_v2 = $result->row();
-        /****VALIDANDO NRO DOC** */
-        /****VALIDANDO NRO DOC** */
 
         if($result_v2==NULL){
-            $password = rand(100000, 999999);
             $datos = [
-                "hc" => $data["hc"],
+                "tpdocumento" => $data["tpdocumento"],
+                "documento" => $data["dni"],
+                "fecha_nacimiento" => $data["fecha_nacimiento"],
                 "nombre" => $data["nombre"],
                 "apellido" => $data["apellido"],
-                "documento" => $data["dni"],
                 "direccion" => $data["direccion"],
-                "telefono" => $data["celular"],
+                "comuna" => $data["comuna"],
+                "barrio" => $data["barrio"],
                 "sexo" => $data["sexo"],
-                "fecha_nacimiento" => $data["fecha_nacimiento"],
-                "edad" => $data["edad"],
-                "menor_edad" => $data["menor"],
-                "familiar_documento" => $data["documento"],
-                "familiar_nombre" => $data["responsable"],
-                "ocupacion" => $data["ocupacion"],
-                "grado_academico" => $data["grado_academico"],
-                "estado_civil" => $data["estado_civil"],
+                "telefono" => $data["telefono"],
+                "celular" => $data["celular"],
                 "departamento" => $data["departamento"],
-                "provincia" => $data["provincia"],
-                "distrito" => $data["distrito"],
-                "creacion_fecha" => date("Y-m-d"),
-                "creacion_hora" => date("h:i A"),
-                "usuario" => $this->session->userdata("nombre"),
-                "password" => $password,
-                "estado" => "Activo"
+                "municipio" => $data["provincia"],
+                "estado_civil" => $data["estado_civil"],
+                "grado_academico" => $data["grado_academico"],
+                "lugar_votacion" => $data["puesto_votacion"],
+                "correo" => $data["correo"],
+                "id_cargo" => 1 ,
+                "id_institucion_dependencia" => 1 
             ];
-            $this->db->insert("pacientes", $datos);
+            $this->db->insert("votantes", $datos);
             $data = [
                 "success" => 1, // Todo OK,
                 "message" => 'Paciente Registrado Correctamente'  // Paciente Actualizado Correctamente,

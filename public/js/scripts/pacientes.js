@@ -32,25 +32,27 @@ var responsable = $("input:radio[name=responsable]").change(function () {
 });
 $("#crearpaciente").on("click", function () {
 	var url1 = baseurl + "crearpacientes",
+	    tpdocumento = $("#tpdocumento").val(),
 		dni = $("#dni").val(),
 		nombre = $("#nombre").val(),
 		apellido = $("#apellido").val(),
-		hc = $("#hc").val(),
 		celular = $("#celular").val(),
+		telefono = $("#telefono").val(),
 		sexo = $("#sexo").val(),
 		fecha_nacimiento = $("#fecha_nacimiento").val(),
 		edad = $("#edad").val(),
 		direccion = $("#direccion").val(),
+		barrio = $("#barrio").val(),
+		comuna = $("#comuna").val(),
+		correo = $("#correo").val(),
+		puesto_votacion = $("#puesto_votacion").val(),
 		departamento = $("#departamento").val(),
 		provincia = $("#provincia").val(),
 		distrito = $("#distrito").val(),
 		ocupacion = $("#ocupacion").val(),
 		grado_academico = $("#grado_academico").val(),
-		estado_civil = $("#estado_civil").val(),
-		responsable = $("input:radio[name=responsable]").val(),
-		documento = $("#documento").val(),
-		fresponsable = $("#fresponsable").val();
-
+		estado_civil = $("#estado_civil").val();
+		
 	if (dni === "") {
 		$("#dni").addClass("is-invalid");
 	} else if (nombre === "") {
@@ -105,7 +107,6 @@ $("#crearpaciente").on("click", function () {
 				dni: dni,
 				nombre: nombre,
 				apellido: apellido,
-				hc: hc,
 				celular: celular,
 				sexo: sexo,
 				fecha_nacimiento: fecha_nacimiento,
@@ -117,9 +118,12 @@ $("#crearpaciente").on("click", function () {
 				ocupacion: ocupacion,
 				grado_academico: grado_academico,
 				estado_civil: estado_civil,
-				responsable: responsable,
-				documento: documento,
-				fresponsable: fresponsable,
+				tpdocumento: tpdocumento,
+				telefono: telefono,
+				barrio: barrio,
+				comuna: comuna,
+				correo: correo,
+				puesto_votacion: puesto_votacion
 			},
 			success: function (json) {
             json =  JSON.parse(json);

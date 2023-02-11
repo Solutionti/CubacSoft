@@ -15,11 +15,10 @@ class Triaje extends Admin_Controller {
 	
 	public function index()
 	{
-		$atenciones = $this->Triaje_model->getTriaje();
-		$doctores = $this->Doctores_model->getDoctores();
-		$especialidades = $this->Especialidades_model->getEspecialidades();
-		$data = ["doctor" => $doctores, "especialidad" => $especialidades, "atencion" => $atenciones];
-		$this->load->view('administrador/triaje', $data);
+		
+		
+		$data = [];
+		$this->load->view('administrador/triaje');
 	}
 
 	public function getTriajeId() {

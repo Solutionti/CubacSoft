@@ -133,54 +133,19 @@
        </div>
      </div>
         <div class="table-responsive" >
-    <a class="btn bg-gradient-danger btn-xs" data-bs-toggle="modal" href="#AgregarPaciente" role="button">Agregar <i class="fas fa-plus"></i> </a> 
+    <a class="btn bg-gradient-danger btn-xs" data-bs-toggle="modal" href="#Agregartriaje" role="button">Agregar <i class="fas fa-plus"></i> </a> 
     <table class="table align-items-center table-borderless mb-0 text-uppercase" id="table-triaje">
       <thead>
         <tr>
-        <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="status">Estado</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Nombre evento</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Fecha inicio</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora inicial</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora final</th>
-                    <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Costo</th>
-          
+          <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
+          <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="status">Estado</th>
+          <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Nombre evento</th>
+          <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Fecha inicio</th>
+          <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora inicial</th>
+          <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora final</th>
         </tr>
       </thead>
-      <tbody>
-      <?php foreach($atencion->result() as $triaje) { ?>
-        <tr>
-          <td class="">
-            <div class="row">
-                <a 
-                class="icon icon-shape icon-sm me-2 bg-gradient-info shadow mx-3"
-                href="<?php echo base_url(); ?>administracion/pasarconsulta/<?php echo $triaje->codigo_atencion; ?>"
-                title="pasar a consulta"  
-                >
-                <i class="fas fa-check text-white opacity-10"></i>
-              </a>
-              <a 
-              class="icon icon-shape icon-sm bg-gradient-danger shadow text-center"
-              onclick="triajeModalData(<?php echo $triaje->documento; ?>)"
-              >
-              <i class="fas fa-laptop-medical text-white opacity-10"></i>
-               </a>
-            </div>
-          </td>
-                        
-                        <?php if($triaje->estado == "Registrado"){ ?> 
-                      <td class="text-xs text-danger mb-0"><?php echo $triaje->estado; ?></td>
-                      <?php } else {?>
-                        <td class="text-xs text-danger mb-0"><?php echo $triaje->estado; ?></td>
-                      <?php } ?>
-                      <td class="text-xs text-dark mb-0"><?php echo $triaje->documento; ?></td>
-                    <td class="text-xs text-dark mb-0"><?php echo $triaje->apellido." ".$triaje->paciente; ?></td>
-                    <td class="text-xs text-dark mb-0"><?php echo $triaje->nombre; ?></td>
-                    <td class="text-xs text-dark mb-0"><?php echo $triaje->descripcion; ?></td>
-                    <td class="text-xs text-dark mb-0"><?php echo $triaje->costo; ?></td>
-                    </tr>
-                    <?php } ?>
-      </tbody>
+      
     </table>
     <br>
   </div>
@@ -193,117 +158,46 @@
   <!-- LARGE MODAL -->
 
   <div class="modal fade" id="Agregartriaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-fullscreen" role="document">
+  <div class="modal-dialog  modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hacer evaluacion de  triaje</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Configuracion del evento</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group input-group-sm">
-                    <label>DNI</label>
-                    <input type="number" class="form-control" id="dni" readonly>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group input-group-sm">
-                    <label>Paciente</label>
-                    <input type="text" class="form-control" id="paciente" readonly>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group input-group-sm">
-                    <label>Edad</label>
-                    <input type="text" class="form-control" id="edad" readonly>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
           <div class="col-md-6">
             <div class="form-group input-group-sm">
-              <label>Doctor</label>
-                <select class="form-control" id="doctor">
-                  <option value="">Seleccione el doctor</option>
-                      <?php  foreach($doctor->result() as $doctores) { ?>
-                        <option value="<?php echo $doctores->codigo_doctor; ?>"><?php echo $doctores->nombre ." ( ".$doctores->perfil . " )"; ?></option>
-                      <?php }?>
-                </select>
+              <label>Nombre *</label>
+              <input type="text" class="form-control" id="arterial" autocomplete="off">
             </div>
           </div>
             <div class="col-md-6">
               <div class="form-group input-group-sm">
-                 <label>Especialidad</label>
-                 <select class="form-control" id="especialidad">
-                    <option value="">Seleccione la especialidad</option>
-                    <?php foreach($especialidad->result() as $especialidades){ ?>
-                    <option value="<?php echo $especialidades->codigo_especialidad; ?>"><?php echo $especialidades->descripcion; ?></option>
-                    <?php } ?>
-                  </select>
+                 <label>Fecha del evento *</label>
+                 <input type="date" class="form-control" id="arterial" autocomplete="off">
               </div>
             </div>
          </div>
          <div class="row">
            <div class="col-md-6">
                <div class="form-group input-group-sm">
-                   <label>Presion arterial(mmHg)</label>
-                   <input type="text" class="form-control" id="arterial" autocomplete="off">
+                   <label>Hora inicial</label>
+                   <input type="time" class="form-control" id="arterial" autocomplete="off">
                </div>
            </div>
            <div class="col-md-6">
                <div class="form-group input-group-sm">
-                   <label>Temperatura (C)</label>
+                   <label>Hora final</label>
                    <input type="number" class="form-control" id="temperatura" autocomplete="off">
                </div>
            </div>
         </div>
-        <div class="row">
-           <div class="col-md-4">
-               <div class="form-group input-group-sm">
-                   <label>Frecuencia Respiratoria (X Minuto)</label>
-                   <input type="number" class="form-control" id="respiratoria" autocomplete="off">
-               </div>
-           </div>
-           <div class="col-md-4">
-               <div class="form-group input-group-sm">
-                   <label>Frecuencia cardiaca(X Minuto)</label>
-                   <input type="number" class="form-control" id="cardiaca" autocomplete="off">
-               </div>
-           </div>
-           <div class="col-md-4">
-               <div class="form-group input-group-sm">
-                   <label>Saturaciòn O2</label>
-                   <input type="number" class="form-control" id="saturacion" autocomplete="off">
-               </div>
-           </div>
-        </div>
-         <div class="row">
-           <div class="col-md-4">
-              <div class="form-group input-group-sm">
-                 <label>Peso (kg) utilice punto para decimales</label>
-                 <input type="" class="form-control" id="peso" autocomplete="off">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group input-group-sm">
-                <label>Talla (cm)</label>
-                  <input type="number" class="form-control" id="talla" autocomplete="off">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group input-group-sm">
-                <label>Imc</label>
-                 <input type="number" class="form-control" id="lmc" autocomplete="off">
-              </div>
-            </div>
-         </div>
-         
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="pasar-vacio">Pasar vacio</button>
         <button type="button" class="btn btn-primary" id="crearTriaje">Guardar</button>
       </div>
     </div>

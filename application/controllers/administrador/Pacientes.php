@@ -11,19 +11,18 @@ class Pacientes extends Admin_Controller {
 	
 	public function index()
 	{
-		$pacientes = $this->Pacientes_model->getPacientes();
 		$departamentos = $this->Generic_model->getDepartamentos();
 		$provincias = $this->Generic_model->getProvincias();
 		$distritos = $this->Generic_model->getDistritos();
-		$data = ["paciente" => $pacientes,"departamento" => $departamentos, "provincia" => $provincias, "distrito" => $distritos];
+		$data = ["departamento" => $departamentos, "provincia" => $provincias, "distrito" => $distritos];
 		$this->load->view('administrador/pacientes', $data);
 	}
 
 	public function CrearPaciente() {
+		$tpdocumento = $this->input->post("tpdocumento");
 		$dni = $this->input->post("dni");
 		$nombre = $this->input->post("nombre");
 		$apellido = $this->input->post("apellido");
-		$hc = $this->input->post("hc");
 		$celular = $this->input->post("celular");
 		$sexo = $this->input->post("sexo");
 		$fecha_nacimiento = $this->input->post("fecha_nacimiento");
@@ -35,15 +34,18 @@ class Pacientes extends Admin_Controller {
 		$ocupacion = $this->input->post("ocupacion");
 		$grado_academico = $this->input->post("grado_academico");
 		$estado_civil = $this->input->post("estado_civil");
-		$documento = $this->input->post("documento");
-		$responsable = $this->input->post("fresponsable");
-		$menor = $this->input->post("responsable");
+		
+		$telefono = $this->input->post("telefono");
+		$barrio = $this->input->post("barrio");
+		$comuna = $this->input->post("comuna");
+		$correo = $this->input->post("correo");
+		$puesto_votacion = $this->input->post("puesto_votacion");
 
 		$data = [
+			"tpdocumento" => $tpdocumento,
 			"dni" => $dni,
 			"nombre" => $nombre,
 			"apellido" => $apellido,
-			"hc" => $hc,
 			"celular" => $celular,
 			"sexo" => $sexo,
 			"fecha_nacimiento" => $fecha_nacimiento,
@@ -55,9 +57,11 @@ class Pacientes extends Admin_Controller {
 			"ocupacion" => $ocupacion,
 			"grado_academico" => $grado_academico,
 			"estado_civil" => $estado_civil,
-			"documento" => $documento,
-			"responsable" => $responsable,
-			"menor" => $menor,
+			"telefono" => $telefono,
+			"barrio" => $barrio,
+			"comuna" => $comuna,
+			"correo" => $correo,
+			"puesto_votacion" => $puesto_votacion
 		];
 		$this->Pacientes_model->CrearPaciente($data);
 	}

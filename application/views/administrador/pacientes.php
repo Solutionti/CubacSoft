@@ -134,20 +134,23 @@
        </div>
      </div>
   <div class="table-responsive" >
-    <table class="table align-items-center mb-0 table-borderless text-uppercase" id="table-pacientes">
+    <table class="table align-items-center mb-0 table-borderless text-uppercase">
       <thead>
         <tr>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12"></th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12"></th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Tipo documento</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Documento</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >No HC</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Apellidos</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Nombres</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Dirección</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Telefono</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Celular</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12" >Fecha de nacimiento</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12">Sexo</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12">Estado civil</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12">Comuna</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12">lugar votacion</th>
          
         </tr>
       </thead>
@@ -175,9 +178,20 @@
       </div>
       <div class="modal-body">
         <div class="row">
+          <div class="col-md-2">
+                <div class="form-group input-group-sm has-validation">
+                    <label>Tipo documento</label>
+                    <select class="form-control" id="tpdocumento">
+                      <option value="CC">Cedula de ciudadania</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Campo obligatorio.
+                    </div>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div class="form-group input-group-sm has-validation">
-                    <label>DNI</label>
+                    <label>Documento</label>
                     <input type="number" class="form-control" id="dni" value="">
                     <div class="invalid-feedback">
                       Campo obligatorio.
@@ -202,16 +216,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="form-group input-group-sm">
-                    <label>No HC</label>
-                    <input type="text" class="form-control" id="hc" readonly>
-                    
-                </div>
-            </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group input-group-sm has-validation">
                  <label>Celular</label>
                  <input type="number" class="form-control" id="celular" value="">
@@ -220,7 +227,16 @@
                     </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+              <div class="form-group input-group-sm has-validation">
+                 <label>Telefono</label>
+                 <input type="number" class="form-control" id="telefono" value="">
+                 <div class="invalid-feedback">
+                      Campo obligatorio.
+                    </div>
+              </div>
+            </div>
+            <div class="col-md-2">
               <div class="form-group input-group-sm has-validation" >
                 <label>Sexo</label>
                   <select class="form-control" id="sexo">
@@ -249,7 +265,7 @@
                  <input type="number" class="form-control" id="edad">
                  <div class="invalid-feedback">
                       Campo obligatorio.
-                    </div>
+                 </div>
               </div>
             </div>
          </div>
@@ -263,7 +279,47 @@
                     </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+              <div class="form-group input-group-sm">
+                 <label>Barrio</label>
+                 <input type="text" class="form-control" id="barrio">
+                 <div class="invalid-feedback">
+                      Campo obligatorio.
+                    </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group input-group-sm">
+                <label>Comuna</label>
+                  <select class="form-control" id="comuna">
+                  <option value="">Seleccione la comuna</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <!-- <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option> -->
+                  </select>
+                  <div class="invalid-feedback">
+                      Campo obligatorio.
+                    </div>
+              </div>
+            </div>
+            <div class="col-md-2">
               <div class="form-group input-group-sm">
                 <label>Departamento</label>
                   <select class="form-control"  id="departamento">
@@ -277,9 +333,9 @@
                     </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group input-group-sm">
-                <label>Provincia</label>
+                <label>Municipio</label>
                   <select class="form-control" id="provincia">
                     <option value="">Seleccione la provincia</option>
                     <?php foreach($provincia->result() as $provincias) { ?>
@@ -291,20 +347,7 @@
                     </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <div class="form-group input-group-sm">
-                <label>Distrito</label>
-                  <select class="form-control" id="distrito">
-                  <option value="">Seleccione el distrito</option>
-                  <?php foreach($distrito->result() as $distritos) { ?>
-                    <option value="<?php echo $distritos->id; ?>"><?php echo $distritos->name;  ?></option>
-                  <?php } ?>
-                  </select>
-                  <div class="invalid-feedback">
-                      Campo obligatorio.
-                    </div>
-              </div>
-            </div>
+            
          </div>
          <div class="row">
            <div class="col-md-4">
@@ -350,36 +393,22 @@
                     </div>
                </div>
            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>¿Es menor de edad?</h4>
-                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="responsable" id="exampleRadios1" value="si">
-                   <label class="form-check-label" for="exampleRadios1">
-                      Si
-                  </label>
-                 </div>
-            </div>
-        </div>
-        <div class="responsable" hidden="true">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group input-group-sm">
-                 <label>Documento</label>
-                 <input type="text" class="form-control" id="documento">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group input-group-sm">
-                  <label>Familiar Responsable</label>
-                  <input type="text" class="form-control" id="fresponsable">
-                </div>
-              </div>
+         </div>
+         <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Lugar de votacion</label>
+              <input type="text" class="form-control" id="puesto_votacion">
             </div>
           </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Correo electronico</label>
+              <input type="text" class="form-control" id="correo">
+            </div>
+          </div>
+         </div>
         </div>
-
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="crearpaciente">Guardar</button>
       </div>

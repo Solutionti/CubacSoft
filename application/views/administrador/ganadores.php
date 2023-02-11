@@ -156,7 +156,7 @@
                     <div class="card card-profile mt-md-0 mt-5">
                       <a href="javascript:;">
                         <div class="p-3">
-                         <img class="w-100 border-radius-md" src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/brooke.jpg" height="350px;">
+                         <img class="w-100 border-radius-md" src="https://pbs.twimg.com/profile_images/444084884118593536/k-Yw4sRl_400x400.jpeg" height="350px;">
                         </div>
                       </a>
                     <div class="card-body blur justify-content-center text-center mx-4 mb-4 border-radius-md">

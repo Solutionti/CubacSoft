@@ -11,9 +11,8 @@ class Precios extends Admin_Controller {
 	
 	public function index()
 	{
-		$precios = $this->Precios_model->getPrecios();
-		$data = ["precio" => $precios];
-		$this->load->view('administrador/ganadores', $data);
+		
+		$this->load->view('administrador/ganadores');
 	}
 
 	public function crearPrecioServicio() {

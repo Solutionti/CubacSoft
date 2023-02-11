@@ -10,10 +10,8 @@ class Gastos extends Admin_Controller {
 	}	
 	public function index()
 	{
-		$gastos = $this->Gastos_model->getGastos();
 		$users = $this->Usuarios_model->getAllUsers();
 		$data = [
-            "gastos" => $gastos,
             "users" => $users
         ];
 		$this->load->view('administrador/gastos', $data);

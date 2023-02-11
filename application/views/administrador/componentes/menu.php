@@ -17,14 +17,19 @@
             <span class=" "> Perfil</span>
             </a>
          </li>
-         
+         <li class="nav-item">
+            <a class="nav-link " href="<?php echo base_url(); ?>administracion/pacientes">
+              <i class="fa fa-user"></i>
+              <span class="sidenav-normal">Votantes</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link " href="<?php echo base_url(); ?>administracion/recursoshumanos">
               <i class="fa fa-users"></i>
               <span class="sidenav-normal">Usuarios</span>
             </a>
           </li>
-         
+          
          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>administracion/gastos">
             <i class="fas fa-address-card"></i>
@@ -50,21 +55,21 @@
             </a>
             <div class="collapse " id="atencion">
                <ul class="nav nav-sm flex-column">
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a class="nav-link " href="<?php echo base_url(); ?>administracion/pacientes">
                      <span class="sidenav-normal">Datos Personas</span>
                      </a>
-                  </li>
+                  </li> -->
                   <!-- <li class="nav-item">
                      <a class="nav-link" href="<?php echo base_url(); ?>administracion/atencion">
                      <span class="sidenav-normal">Carga de votantes</span>
                      </a>
                   </li> -->
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a class="nav-link " href="<?php echo base_url(); ?>administracion/laboratorio">
                      <span class="sidenav-normal">Tablero de resultados</span>
                      </a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                      <a class="nav-link " href="<?php echo base_url(); ?>administracion/triaje">
                      <span class="sidenav-normal">Fecha y hora del evento</span>
