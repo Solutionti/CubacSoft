@@ -4,8 +4,7 @@ class Pacientes_model extends CI_model {
 
     public function getPacientes() {
         $this->db->select("*");
-        $this->db->from("pacientes");
-        $this->db->where("estado", "Activo");
+        $this->db->from("votantes");
         $result = $this->db->get();
 
         return $result;
@@ -13,7 +12,7 @@ class Pacientes_model extends CI_model {
 
     public function getPacienteId($documento) {
         $this->db->select("*");
-        $this->db->from("pacientes");
+        $this->db->from("votantes");
         $this->db->where("documento", $documento);
         $result = $this->db->get();
 
@@ -22,8 +21,8 @@ class Pacientes_model extends CI_model {
 
     public function CrearPaciente($data) {
        
-        $this->db->select("codigo_paciente");
-        $this->db->from("pacientes");
+        $this->db->select("id_votante");
+        $this->db->from("votantes");
         $this->db->where("documento = '".$data["dni"]."'");
         $result = $this->db->get();
         $result_v2 = $result->row();
@@ -53,13 +52,13 @@ class Pacientes_model extends CI_model {
             $this->db->insert("votantes", $datos);
             $data = [
                 "success" => 1, // Todo OK,
-                "message" => 'Paciente Registrado Correctamente'  // Paciente Actualizado Correctamente,
+                "message" => 'Votante Registrado Correctamente'  // Paciente Actualizado Correctamente,
             ];
             echo  json_encode($data);
         }else{
             $data = [
                 "success" => 2, // Atencion WARNING,
-                "message" => 'Ya existe un paciente con este N° Documento'  // Ya existe un paciente con este N° Documento
+                "message" => 'Ya existe un Votante con este N° Documento'  // Ya existe un paciente con este N° Documento
                 ,
             ];
             echo  json_encode($data);
@@ -68,7 +67,7 @@ class Pacientes_model extends CI_model {
 
     public function CountPacientes() {
         $this->db->select("count(*) as numero");
-        $this->db->from("pacientes");
+        $this->db->from("votantes");
         $result = $this->db->get();
         
         return $result->row();
@@ -130,22 +129,33 @@ class Pacientes_model extends CI_model {
         $data = [
             "estado" => "Inactivo"
         ];
-        $this->db->where("documento", $id);
-        $this->db->update("pacientes", $data);
+        $this->db->where("id_votante", $id);
+        $this->db->update("votantes", $data);
     }
 
       public function cargarPacientesPaginacion($params){
 		$columns = $totalRecords = $data = array();
 		$columns = array( 
-			0 => 'documento',
-			1 => 'hc', 
-			2 => 'apellido',
+			0 => 'tpdocumento',
+			1 => 'documento', 
+			2 => 'fecha_nacimiento',
 			3 => 'nombre',
-			4 => 'direccion',
-			5 => 'telefono',
-			6 => 'fecha_nacimiento',
-            7 => 'sexo',
-            8 => 'estado_civil'
+			4 => 'apellido',
+			5 => 'direccion',
+			6 => 'comuna',
+            7 => 'barrio',
+            8 => 'sexo',
+            9 => 'telefono',
+            10 => 'celular',
+            11 => 'departamento',
+            12 => 'municipio',
+            13 => 'grado_academico',
+            14 => 'lugar_votacion',
+            15 => 'correo',
+            16 => 'id_cargo',
+            17 => 'id_institucion_dependencia',
+            18 => 'fecha_sufragacion',
+            19 => 'hora_sufragacion',
 		);
 
 		$where = $sqlTot = $sqlRec = "";
@@ -163,7 +173,7 @@ class Pacientes_model extends CI_model {
 			}
 			$where .=" )";
 		}
-		$sql = "SELECT * FROM pacientes WHERE estado = 'Activo'";
+		$sql = "SELECT * FROM votantes WHERE estado = 'Activo'";
 		$sqlTot .= $sql;
 		$sqlRec .= $sql;
 

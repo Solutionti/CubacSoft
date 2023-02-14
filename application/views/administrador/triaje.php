@@ -137,7 +137,6 @@
     <table class="table align-items-center table-borderless mb-0 text-uppercase" id="table-triaje">
       <thead>
         <tr>
-          <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
           <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="status">Estado</th>
           <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Nombre evento</th>
           <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="name">Fecha inicio</th>
@@ -145,7 +144,17 @@
           <th  class="text-uppercase text-dark text-xs font-weight-bolder opacity-12" data-sort="budget">Hora final</th>
         </tr>
       </thead>
-      
+      <tbody>
+      <?php foreach($evento->result() as $eventos){ ?>
+      <tr>
+        <td class="text-xs text-dark"><?php echo $eventos->estado; ?></td>
+        <td class="text-xs text-dark"><?php echo $eventos->nombre; ?></td>
+        <td class="text-xs text-dark"><?php echo $eventos->fecha; ?></td>
+        <td class="text-xs text-dark"><?php echo $eventos->hora_inicio; ?></td>
+        <td class="text-xs text-dark"><?php echo $eventos->hora_final; ?></td>
+      </tr>
+      <?php } ?>
+      </tbody>
     </table>
     <br>
   </div>
@@ -172,13 +181,13 @@
           <div class="col-md-6">
             <div class="form-group input-group-sm">
               <label>Nombre *</label>
-              <input type="text" class="form-control" id="arterial" autocomplete="off">
+              <input type="text" class="form-control" id="nombre" autocomplete="off">
             </div>
           </div>
             <div class="col-md-6">
               <div class="form-group input-group-sm">
                  <label>Fecha del evento *</label>
-                 <input type="date" class="form-control" id="arterial" autocomplete="off">
+                 <input type="date" class="form-control" id="fecha_inicial" autocomplete="off">
               </div>
             </div>
          </div>
@@ -186,19 +195,19 @@
            <div class="col-md-6">
                <div class="form-group input-group-sm">
                    <label>Hora inicial</label>
-                   <input type="time" class="form-control" id="arterial" autocomplete="off">
+                   <input type="time" class="form-control" id="hora_inicial" autocomplete="off">
                </div>
            </div>
            <div class="col-md-6">
                <div class="form-group input-group-sm">
                    <label>Hora final</label>
-                   <input type="number" class="form-control" id="temperatura" autocomplete="off">
+                   <input type="time" class="form-control" id="hora_final" autocomplete="off">
                </div>
            </div>
         </div>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="crearTriaje">Guardar</button>
+        <button type="button" class="btn btn-primary" id="btn-fechahora">Guardar</button>
       </div>
     </div>
   </div>
@@ -222,96 +231,30 @@ $("#table-triaje").DataTable({
           }
         }
        });
-
-    $("#talla").on("blur", function () {
-        var peso = Math.round($("#peso").val()),
-            altura = Math.round($("#talla").val()) / 100;
-            indice = (peso / Math.pow(altura,2));
-            convertir = Number.parseFloat(indice).toFixed(2);
-            $("#lmc").val(convertir);
-    });
-
-    function triajeModalData(id) {
-       var url1 = baseurl + "administracion/consultartriaje";
+  
+       $("#btn-fechahora").click(function(e){
+       e.preventDefault();
+        var id = $("#id").val(),
+        nombre = $("#nombre").val(),
+        fecha = $("#fecha_inicial").val(),
+        horaini = $("#hora_inicial").val(),
+        horafin = $("#hora_final").val();
 
         $.ajax({
-            url: url1,
-            method: "POST",
-            data: { id:id },
-            success: function (data) {
-              data = JSON.parse(data);
-              console.log(data);
-                $("#Agregartriaje").modal("show");
-                $("#dni").val(data.documento);
-                $("#paciente").val(data.apellido +"  "+ data.paciente);
-                $("#edad").val(data.edad);
-                $("#doctor").val(data.medico).prop("selected", true);
-                $("#especialidad").val(data.especialidad).prop("selected", true);
-            }
+          url: '<?php echo base_url(); ?>administracion/creartriaje',
+          type: "POST",
+          data: {id:id,nombre:nombre, fecha:fecha, horaini:horaini, horafin:horafin},
+          success:function(){
+            $("body").overhang({
+               type: "success",
+               message: "El evento se ha programado correctamente"
+               });
+               setTimeout(reloadPage, 3000);
+          }
         });
-      }
-
-      $("#pasar-vacio").on("click", function () {
-        var arterial = $("#arterial"),
-        temperatura = $("#temperatura"),
-        respiratoria = $("#respiratoria"),
-        cardiaca = $("#cardiaca"),
-        saturacion = $("#saturacion"),
-        peso = $("#peso"),
-        talla = $("#talla"),
-        lmc = $("#lmc");
-
-        arterial.val(0);
-        temperatura.val(0);
-        respiratoria.val(0);
-        cardiaca.val(0);
-        saturacion.val(0);
-        peso.val(0);
-        talla.val(0);
-        lmc.val(0);
-      });
-
-      $("#crearTriaje").on("click", function () {
-         var url2 = baseurl + "administracion/creartriaje",
-            dni = $("#dni").val(),
-            doctor = $("#doctor").val(),
-            especialidad = $("#especialidad").val(),
-            presion = $("#arterial").val(),
-            temperatura = $("#temperatura").val(),
-            respiratoria = $("#respiratoria").val(),
-            cardiaca = $("#cardiaca").val(),
-            saturacion = $("#saturacion").val(),
-            peso = $("#peso").val(),
-            talla = $("#talla").val(),
-            lmc = $("#lmc").val();
-
-            $.ajax({
-              url: url2,
-              method: "POST",
-              data: { 
-                dni: dni,
-                doctor: doctor,
-                especialidad: especialidad,
-                presion: presion,
-                temperatura: temperatura,
-                respiratoria: respiratoria,
-                cardiaca: cardiaca,
-                saturacion: saturacion,
-                peso: peso,
-                talla: talla,
-                lmc:lmc
-              },
-              success: function () {
-                $("body").overhang({
-                    type: "success",
-                    message: "Examen triaje registrado correctamente"
-                });
-                setTimeout(reloadPage, 3000);
-                
-              }
-            });
-      });
-      const reloadPage = () => {
+    })
+    
+  const reloadPage = () => {
     location.reload();
   }
   </script>

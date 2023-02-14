@@ -183,7 +183,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <select name="cpe_tipo" id="cpe_tipo" class="form-control" required>
+                                       <select  id="tppostulacion" class="form-control">
                                           <option value="">Seleccionar</option>
                                           <option value="3">Alcaldia</option>
                                        </select>
@@ -196,7 +196,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="text" name="cpe_serie" id="cpe_serie"  class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
+                                       <input type="text" id="nombre"  class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
                                     </div>
                                  </div>
                               </div>
@@ -206,7 +206,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="text" name="cpe_serie" id="cpe_serie"  class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
+                                       <input type="text"  id="apellido"  class="form-control text-uppercase" required data-validation-required-message="Complete el Numero">
                                     </div>
                                  </div>
                               </div>
@@ -217,7 +217,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="number" require step="0.01" name="cpe_gravada" id="cpe_gravada" maxlength="8" minlength="1" class="form-control" required data-validation-required-message="Complete el Numero">
+                                       <input type="number"  id="tarjeton"  class="form-control" required data-validation-required-message="Complete el Numero">
                                     </div>
                                  </div>
                               </div>
@@ -227,7 +227,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="number" require step="0.01" name="cpe_igv" id="cpe_igv" maxlength="8" minlength="1" class="form-control" required data-validation-required-message="Complete el Numero">
+                                       <input type="number"  id="cargo"  class="form-control" required data-validation-required-message="Complete el Numero">
                                     </div>
                                  </div>
                               </div>
@@ -238,7 +238,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input name="f_emision" id="f_emision" type="color" class="form-control _date" required>
+                                       <input  id="color" type="color" class="form-control _date">
                                     </div>
                                  </div>
                               </div>
@@ -257,7 +257,7 @@
                                  <div class="form-group">
                                     <label>Tipo documento</label>
                                     <div class="controls" class="for">
-                                       <select name="prov_tipo_doc" id="prov_tipo_doc" required class="form-control manual">
+                                       <select  id="tpdocumento" required class="form-control manual">
                                           <option value="6" selected>Cedula de ciudadania</option>
                                        </select>
                                     </div>
@@ -267,7 +267,7 @@
                                  <div class="form-group input-group-sm">
                                     <label>N° Documento</label>
                                     <div class="input-group">
-                                       <input type="text" name="prov_nro_doc" id="prov_nro_doc" class="form-control" required data-validation-required-message="Complete el Numero" length="11" min="11">
+                                       <input type="text"  id="documento" class="form-control" required data-validation-required-message="Complete el Numero" length="11" min="11">
                                     </div>
                                     
                                  </div>
@@ -278,7 +278,7 @@
                                        <span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <input type="file" name="prov_razon_social" id="prov_razon_social" maxlength="100" class="form-control" required data-validation-required-message="Complete el Numero" >
+                                       <input type="file" name="foto" id="foto" maxlength="100" class="form-control" required data-validation-required-message="Complete el Numero" >
                                     </div>
                                  </div>
                               </div>
@@ -295,7 +295,7 @@
                                     <label>Responsable<span class="required">*</span>
                                     </label>
                                     <div class="controls">
-                                       <select required name="codigo_usuario" id="codigo_usuario" class="form-control" >
+                                       <select required  id="responsable" class="form-control" >
                                           <option value="">Seleccionar Colaborador</option>
                                              <?php foreach($users->result() as $users){ ?>
                                                 <option value="<?php echo $users->codigo_usuario; ?>"><?php echo $users->nombre.' '.$users->apellido; ?></td>
@@ -309,7 +309,7 @@
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="submit" class="btn btn-primary">Guardar</button>
+                     <button type="button" class="btn btn-primary" id="guardar_postulado">Guardar</button>
                   </div>
                </form>
             </div>

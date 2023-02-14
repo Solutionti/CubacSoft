@@ -11,7 +11,7 @@
 
 <div class="container">
    <br>
-    <img src="<?php echo base_url(); ?>public/img/theme/logo.png" width="70px;" class="img-fluid">
+    <!-- <img src="<?php echo base_url(); ?>public/img/theme/logo.png" width="70px;" class="img-fluid"> -->
     <small class="font-weight-bold ml-3"> DATOS DE LOS PACIENTES</small>
     <br>
     <br>
@@ -25,8 +25,8 @@
             <?php $pacientes = $paciente->result()[0]; ?>
             <div class="col-md-4">
                 <div class="form-group input-group-sm has-validation">
-                    <label>DNI</label>
-                    <input type="number" class="form-control" id="dni2" value="<?php echo $pacientes->documento; ?>" readonly>
+                    <label>Documento</label>
+                    <input type="number" class="form-control" id="dni2" value="<?php echo $pacientes->documento; ?>">
                     <div class="invalid-feedback">
                       Campo obligatorio.
                     </div>
@@ -199,29 +199,7 @@
                </div>
            </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>¿Es menor de edad?</h4>
-                 
-            </div>
-        </div>
-        <div class="responsable" >
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group input-group-sm">
-                 <label>Documento</label>
-                 <input type="text" class="form-control" id="documento2">
-                 
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group input-group-sm">
-                  <label>Familiar Responsable</label>
-                  <input type="text" class="form-control" id="fresponsable2">
-                </div>
-              </div>
-            </div>
-          </div>
+       
           <button class="btn btn-primary" id="btn-actualizar">Actualizar</button>
 </div>
 <?php require("componentes/scripts.php"); ?>

@@ -17,9 +17,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Administración</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Personas</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Votantes</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Personas</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Votantes</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -134,7 +134,7 @@
        </div>
      </div>
   <div class="table-responsive" >
-    <table class="table align-items-center mb-0 table-borderless text-uppercase">
+    <table class="table align-items-center mb-0 table-borderless text-uppercase" id="table-pacientes">
       <thead>
         <tr>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-12"></th>

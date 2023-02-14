@@ -60,7 +60,7 @@ $route["administracion/cambiarestadomedico/(:num)"] = "administrador/atencion/ma
 
 //TRIAJE
 $route["administracion/consultartriaje"] = "administrador/triaje/gettriajeid";
-$route["administracion/creartriaje"] = "administrador/triaje/creartriaje";
+$route["administracion/creartriaje"] = "administrador/triaje/actualizarFechaHora";
 $route["administracion/pasarconsulta/(:num)"] = "administrador/triaje/mandaraconsulta";
 
 //DOCTORES

@@ -28,23 +28,24 @@ class Triaje_model extends CI_model {
         return $result->row();
     }
 
-    public function crearTriaje($data) {
-        
+    public function actualizarfechaHora($datos){
         $datos = [
-            "presion_arterial" => $data["presion"],
-            "temperatura" =>  $data["temperatura"],
-            "frecuencia_respiratoria" => $data["respiratoria"],
-            "frecuencia_cardiaca" => $data["cardiaca"],
-            "saturacion" => $data["saturacion"],
-            "peso" => $data["peso"],
-            "talla" => $data["talla"],
-            "imc" => $data["lmc"],
-            "paciente" =>  $data["dni"],
-            "doctor" => $data["doctor"],
-            "especialidad" => $data["especialidad"],
-            "usuario" => $this->session->userdata("nombre")
+            "nombre" => $datos["nombre"],
+            "fecha" => $datos["fecha"],
+            "hora_inicio" => $datos["horaini"],
+            "hora_final" => $datos["horafin"],
+            "estado" => "Activo"
         ];
-        $this->db->insert("triajes", $datos);
+        
+        $this->db->insert("configuracion", $datos);
+    }
+
+    public function getEvento() {
+        $this->db->select("*");
+        $this->db->from("configuracion");
+        $result = $this->db->get();
+
+        return $result;
     }
 
 }

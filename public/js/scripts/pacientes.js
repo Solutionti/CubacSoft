@@ -13,8 +13,8 @@ $("#table-pacientes").DataTable({
 	language: {
 		processing: "Procesando",
 		search: "Buscar:",
-		lengthMenu: "Ver _MENU_  Pacientes",
-		info: "Mirando _START_ a _END_ de _TOTAL_ Pacientes",
+		lengthMenu: "Ver _MENU_  Votantes",
+		info: "Mirando _START_ a _END_ de _TOTAL_ Votantes",
 		zeroRecords: "No encontraron resultados",
 		paginate: {
 			first: "Primera",

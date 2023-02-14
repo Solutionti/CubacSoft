@@ -15,10 +15,9 @@ class Triaje extends Admin_Controller {
 	
 	public function index()
 	{
-		
-		
-		$data = [];
-		$this->load->view('administrador/triaje');
+		$eventos = $this->Triaje_model->getEvento();
+		$data = ["evento" => $eventos];
+		$this->load->view('administrador/triaje', $data);
 	}
 
 	public function getTriajeId() {
@@ -28,38 +27,21 @@ class Triaje extends Admin_Controller {
 		echo json_encode($result);
 	}
 
-	public function crearTriaje() {
-		$dni = $this->input->post("dni");
-		$doctor = $this->input->post("doctor");
-		$especialidad = $this->input->post("especialidad");		
-		$presion = $this->input->post("presion");
-		$temperatura = $this->input->post("temperatura");
-		$respiratoria = $this->input->post("respiratoria");
-		$cardiaca = $this->input->post("cardiaca");
-		$saturacion = $this->input->post("saturacion");
-		$peso = $this->input->post("peso");
-		$talla = $this->input->post("talla");
-		$lmc = $this->input->post("lmc");
-		
-		$data = [
-			"dni" => $dni,
-			"doctor" => $doctor,
-			"especialidad" => $especialidad,
-			"presion" => $presion,
-			"temperatura" => $temperatura,
-			"respiratoria" => $respiratoria,
-			"cardiaca" => $cardiaca,
-			"saturacion" => $saturacion,
-			"peso" => $peso,
-			"talla" => $talla,
-			"lmc" => $lmc
-		];
-		$this->Triaje_model->crearTriaje($data);
-	}
-
-	public function mandaraConsulta() {
-		$id = $this->uri->segment(3);
-		$this->Atencion_model->mandaraConsulta($id);
-		redirect(base_url("administracion/triaje"));
+	public function actualizarFechaHora(){
+		$id = $this->input->post("id");
+		$nombre = $this->input->post("nombre");
+		$fecha = $this->input->post("fecha");
+		$horaini = $this->input->post("horaini");
+		$horafin = $this->input->post("horafin");
+	
+		$datos = array(
+		  "id" => $id,
+		  "nombre" => $nombre,
+		  "fecha" => $fecha,
+		  "horaini" => $horaini,
+		  "horafin" => $horafin
+		);
+		$this->Triaje_model->actualizarFechaHora($datos);
+	
 	}
 }

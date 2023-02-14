@@ -1,14 +1,17 @@
 <?php
 	$data = [];
  	foreach ($queryRecords->result() as $value){
-		$id = $value->codigo_paciente;
+		$id = $value->id_votante;
+		$tpdocumento = $value->tpdocumento;
 		$documento = $value->documento;
 		$documento2 = '<span class="text-xs text-dark">'.$value->documento.'</span>'; 
-		$hc = '<span class="text-xs text-dark">'.$value->hc.'</span>';
+		$celular = '<span class="text-xs text-dark">'.$value->celular.'</span>';
 		$apellido = '<span class="text-xs text-dark">'.$value->apellido.'</span>';
 		$nombre = '<span class="text-xs text-dark">'.$value->nombre.'</span>';
 		$direccion = '<span class="text-xs text-dark">'.$value->direccion.'</span>';
 		$telefono = '<span class="text-xs text-dark">'.$value->telefono.'</span>';
+		$comuna = '<span class="text-xs text-dark">'.$value->comuna.'</span>';
+		$lugar_votacion = '<span class="text-xs text-dark">'.$value->lugar_votacion.'</span>';
 		$fecha_nacimiento = '<span class="text-xs text-dark">'.$value->fecha_nacimiento.'</span>';
 		$sexo = $value->sexo;
 		if($sexo == "F") {
@@ -41,7 +44,7 @@
 		}
 
 		
-		$data[] = [$btns1, $btns2, $documento2, $hc, $apellido, $nombre, $direccion, $telefono, $fecha_nacimiento,$sexo,$estado_civil ];
+		$data[] = [$btns1, $btns2, $tpdocumento,$documento2,$apellido, $nombre,$direccion, $telefono, $celular,$fecha_nacimiento,$sexo, $estado_civil, $comuna, $lugar_votacion ];
  	}
 
 	$json_data = array(
